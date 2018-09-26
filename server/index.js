@@ -1,10 +1,10 @@
 import Koa from 'koa'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import AuthMiddleware from './middleware/auth'
+// import AuthMiddleware from './middleware/auth'
 import KoaRouter from 'koa-better-router'
 import Routes from './routes'
-
+import BodyParser from 'koa-bodyparser'
 // load env data
 dotenv.load()
 
@@ -14,6 +14,8 @@ mongoose.connection.on('error', console.error)
 const app    = new Koa()
 const Router = KoaRouter({prefix:'/api'})
 const routes = Object.keys(Routes)
+
+app.use(BodyParser())
 
 routes.forEach(route => {
     console.log(route, Routes[route])

@@ -1,5 +1,5 @@
-import UserController from './Users'
+import CustomerController from './customer'
 
 export default {
-    UserController: new UserController()
+    CustomerController: new CustomerController()
 }
