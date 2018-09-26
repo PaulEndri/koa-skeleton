@@ -1,30 +1,36 @@
 import Controllers from './controllers'
 
-const routes = {
-    "customer/": {
+const routes = [
+    {
+        route:  "customer/",
         method: 'GET',
         action: Controllers.CustomerController.search
     },
-    "customer/:id": {
+    {
+        route:  "customer/:id",
         method: 'GET',
         action: Controllers.CustomerController.get
     },
-    "customer/:id": {
+    {
+        route: "customer/:id",
         method: 'DELETE',
         action: Controllers.CustomerController.delete
     },
-    "customer/:id": {
+    {
+        route: "customer/:id",
         method: 'PUT',
         action: Controllers.CustomerController.replace
     },
-    "customer/:id": {
+    {
+        route:  "customer/:id",
         method: 'PATCH',
         action: Controllers.CustomerController.update
     },
-    "customer/:": {
+    {
+        route: "customer/",
         method: 'POST',
         action: Controllers.CustomerController.create
-    },
-}
+    }
+]
 
 export default routes

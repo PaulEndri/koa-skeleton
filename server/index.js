@@ -13,13 +13,11 @@ mongoose.connection.on('error', console.error)
 
 const app    = new Koa()
 const Router = KoaRouter({prefix:'/api'})
-const routes = Object.keys(Routes)
 
 app.use(BodyParser())
 
-routes.forEach(route => {
-    console.log(route, Routes[route])
-    Router.addRoute(Routes[route].method, route, Routes[route].action)
+Routes.forEach(({route, action, method}) => {
+    Router.addRoute(method, route, action)
 })
 
 // Uncomment when Basic Auth is implemented
